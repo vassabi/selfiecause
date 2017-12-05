@@ -1,0 +1,283 @@
+#header {
+	background: $black;
+	color: $white;
+	height: 40px;
+	.container {
+		position: relative;
+	}
+}
+
+.slide-menu {
+	width: 288px;
+	position: fixed;
+	top: 0;
+	left: -288px;
+	bottom: 0;
+	background: #333;
+	padding: 9px 32px;
+	display: flex;
+	flex-direction: column;
+	z-index: 99;
+	// display: none;
+	@include animate(left);
+	.nav-active & {
+		left: 0;
+	}
+	.main-bg {
+		background-size: 100% auto;
+		background-position: 0 0;
+	}
+	.logo {
+		margin-bottom: 0;
+	}
+	#nav {
+		padding-top: 92px;
+		ul {
+			@extend %listreset;
+			li {
+				font-size: 18px;
+				line-height: 22px;
+				position: relative;
+				padding-left: 45px;
+				margin-bottom: 25px;
+				i {
+					font-size: 25px;
+					position: absolute;
+					top: 50%;
+					left: 0;
+					transform: translateY(-50%);
+				}
+				a {
+					color: $white;
+					text-decoration: none;
+					.batch {
+						position: absolute;
+						top: 50%;
+						right: 5px;
+						transform: translateY(-50%);
+						padding: 5px 8px;
+						font-size: 14px;
+						line-height: 1;
+						font-weight: bold;
+						color: $white;
+						background-color: $yellow-light;
+						border-radius: 20px;
+					}
+				}
+			}
+		}
+	}
+	.user-action {
+		@extend %listreset;
+		margin-top: auto;
+		padding-bottom: 23px;
+		li {
+			font-size: 18px;
+			line-height: 22px;
+			position: relative;
+			padding-left: 45px;
+			margin-bottom: 27px;
+			letter-spacing: 0.5px;
+			i {
+				font-size: 25px;
+				position: absolute;
+				top: 50%;
+				left: 0;
+				transform: translateY(-50%);
+			}
+			a {
+				color: $white;
+				text-decoration: none;
+			}
+		}
+	}
+}
+
+.main-title {
+	display: block;
+	font-size: 18px;
+	line-height: 22px;
+	text-align: center;
+	padding: 8px 70px;
+	font-weight: 900;
+}
+
+.logo {
+	width: 218px;
+	height: 56px;
+	margin-bottom: auto;
+	&.big {
+		width: 111px;
+		height: 111px;
+	}
+	img {
+		vertical-align: top;
+	}
+}
+
+.link-back {
+	position: absolute;
+	top: 7px;
+	left: 10px;
+	font-size: 18px;
+	line-height: 22px;
+	i {
+		font-size: 21px;
+		line-height: 1;
+		margin-right: 3px;
+		margin-top: 3px;
+	}
+	a {
+		display: inline-flex;
+		align-items: center;
+		color: $white;
+		text-decoration: none;
+		@include animate(color);
+		&:hover {
+			color: $yellow;
+		}
+	}
+}
+
+.link-confirm {
+	position: absolute;
+	top: 7px;
+	right: 10px;
+	font-size: 18px;
+	line-height: 22px;
+	i {
+		font-size: 21px;
+		line-height: 1;
+		margin-left: 3px;
+		margin-top: 3px;
+	}
+	a {
+		display: inline-flex;
+		align-items: center;
+		color: $white;
+		text-decoration: none;
+		@include animate(color);
+		&:hover {
+			color: $yellow;
+		}
+	}
+}
+
+.link-save {
+	position: absolute;
+	top: 7px;
+	right: 16px;
+	font-size: 18px;
+	line-height: 22px;
+	i {
+		font-size: 21px;
+		line-height: 1;
+		margin-left: 3px;
+		margin-top: 3px;
+	}
+	a {
+		display: inline-flex;
+		align-items: center;
+		color: $white;
+		text-decoration: none;
+		@include animate(color);
+		&:hover {
+			color: $yellow;
+		}
+	}
+}
+
+.menu {
+	// float: right;
+	width:40px;
+	height:34px;
+	// background:rgba(0, 0, 0, .5);
+	position:absolute;
+	top: 3px;
+	left: 8px;
+	// border-radius:3px;
+	text-indent: -9999px;
+	overflow: hidden;
+	&:before,
+	&:after,
+	span {
+		background:#fff;
+		border-radius:4px;
+		position:absolute;
+		top:50%;
+		left:25%;
+		right:25%;
+		height:2px;
+		margin-top:-1px; /* height/2 */
+		transition:all 0.2s linear;
+	}
+	&:before,
+	&:after {
+		content:'';
+		top:30%;
+		.nav-active & {
+			-moz-transform:rotate(45deg);
+			-webkit-transform:rotate(45deg);
+			-ms-transform:rotate(45deg);
+			transform:rotate(45deg);
+			top:50%;
+			left:15%;
+			right:15%;
+		}
+	}
+	&:after {
+		top:70%;
+		.nav-active & {
+			-moz-transform:rotate(-45deg);
+			-webkit-transform:rotate(-45deg);
+			-ms-transform:rotate(-45deg);
+			transform:rotate(-45deg);
+		}
+	}
+	/* close button transition */
+	span {
+		.nav-active & {
+			opacity:0;
+		}
+	}
+	&:hover {
+		opacity:.9;
+	}
+}
+
+.search {
+	position: absolute;
+	top: 7px;
+	right: 16px;
+	a {
+		color: $white;
+		text-decoration: none;
+		@include animate(color);
+		&:hover {
+			color: $yellow;
+		}
+		i {
+			font-size: 24px;
+			line-height: 1;
+			&.icon-heart {
+				font-size: 20px;
+			}
+		}
+	}
+	.notification {
+		width: 18px;
+		height: 18px;
+		position: absolute;
+		top: -2px;
+		right: -2px;
+		background-color: #de592a;
+		color: $white;
+		font-size: 14px;
+		line-height: 1;
+		border-radius: 70px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-family: Arial, Helvetica, sans-serif;
+	}
+}

@@ -1,0 +1,126 @@
+#wrapper {
+	width: 100%;
+	position: relative;
+	overflow: hidden;
+	// min-height: 100vh;
+	@include animate(margin);
+	.nav-active & {
+		margin-left: 288px;
+	}
+}
+
+.container {
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.main-bg {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	// min-height: 100vh;
+	background-color: #141515;
+	background-size: cover;
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	z-index: -1;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="search"],
+input[type="password"],
+textarea,
+select {
+	background-color: rgba(#f5f5f5, 0.2);
+	height: 45px;
+	border: 2px solid transparent;
+	border-radius: 50px;
+	font-size: 17px;
+	line-height: 20px;
+	color: $white;
+	padding: 5px 16px;
+	letter-spacing: 0.5px;
+	outline: none;
+	@include animate(border-color);
+	@include placeholder {
+		color: $white;
+	}
+	&:focus {
+		border-color: $yellow;
+		// background-color: rgba(#f5f5f5, 0.3);
+
+	}
+	.input-error & {
+		border-color: #f00;
+	}
+}
+
+h1 {
+	line-height: 37px;
+	font-weight: bold;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+}
+
+.btn {
+	display: inline-block;
+	vertical-align: top;
+	padding: 11px 8px;
+	font-size: 22px;
+	line-height: 26px;
+	min-width: 201px;
+	text-decoration: none;
+	text-align: center;
+	border: 2px solid transparent;
+	border-radius: 50px;
+	letter-spacing: 1px;
+	&.btn-alternate {
+		// min-width: 211px;
+		font-weight: bold;
+		padding: 6px 12px;
+		box-shadow: 0 2px 3px 0 rgba($black, 0.5);
+		border-radius: 4px;
+	}
+}
+
+.btn-default {
+	border-color: $white;
+	// background: $maroon;
+	color: $white;
+	@include animate;
+	&:hover {
+		background: $white;
+		color: $black;
+	}
+}
+
+.btn-primary {
+	background: $pink;
+	color: $white;
+	@include animate(background);
+	&:hover {
+		background: darken($pink, 10%);
+	}
+}
+
+.btn-secondary {
+	background: $maroon;
+	color: $white;
+	@include animate(background);
+	&:hover {
+		background: darken($maroon, 10%);
+	}
+}
+
+.btn-info {
+	background: #de592a;
+	color: $white;
+	@include animate(background);
+	&:hover {
+		background: darken(#de592a, 10%);
+	}
+}

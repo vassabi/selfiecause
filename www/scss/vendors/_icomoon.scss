@@ -1,0 +1,119 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../fonts/icomoon.eot?dv1j1q');
+  src:  url('../fonts/icomoon.eot?dv1j1q#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.svg?dv1j1q#icomoon') format('svg'),
+    url('../fonts/icomoon.woff?dv1j1q') format('woff'),
+    url('../fonts/icomoon.ttf?dv1j1q') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-pinterest:before {
+  content: "\e91e";
+}
+.icon-comment:before {
+  content: "\e910";
+}
+.icon-heart:before {
+  content: "\e911";
+}
+.icon-home:before {
+  content: "\e912";
+}
+.icon-link:before {
+  content: "\e913";
+}
+.icon-logout:before {
+  content: "\e914";
+}
+.icon-people:before {
+  content: "\e915";
+}
+.icon-phone:before {
+  content: "\e916";
+}
+.icon-pic:before {
+  content: "\e917";
+}
+.icon-pin:before {
+  content: "\e918";
+}
+.icon-send:before {
+  content: "\e919";
+}
+.icon-setting:before {
+  content: "\e91a";
+}
+.icon-share:before {
+  content: "\e91b";
+}
+.icon-skype:before {
+  content: "\e91c";
+}
+.icon-star:before {
+  content: "\e91d";
+}
+.icon-reload:before {
+  content: "\e90b";
+}
+.icon-stack:before {
+  content: "\e90c";
+}
+.icon-timer:before {
+  content: "\e90d";
+}
+.icon-cross:before {
+  content: "\e90e";
+}
+.icon-flash:before {
+  content: "\e90f";
+}
+.icon-search:before {
+  content: "\e906";
+}
+.icon-arrow-down:before {
+  content: "\e907";
+}
+.icon-arrow-left:before {
+  content: "\e908";
+}
+.icon-arrow-right:before {
+  content: "\e909";
+}
+.icon-arrow-up:before {
+  content: "\e90a";
+}
+.icon-avatar:before {
+  content: "\e900";
+}
+.icon-facebook:before {
+  content: "\e901";
+}
+.icon-gplus:before {
+  content: "\e902";
+}
+.icon-lock:before {
+  content: "\e903";
+}
+.icon-mail:before {
+  content: "\e904";
+}
+.icon-twitter:before {
+  content: "\e905";
+}
