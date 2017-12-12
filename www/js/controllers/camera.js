@@ -9,7 +9,6 @@
         tapPhoto: true,
         previewDrag: false
     };
-
     CameraPreview.startCamera(options);
 
     $("#btn-take-picture").on("click", function () {
