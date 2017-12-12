@@ -10,56 +10,35 @@ $(document).ready(function () {
 
 function SignUp()
 {
+    $("#btn-signup").attr('disabled', true);
+    $("#btn-signup").text('Signing Up...');
     var data = {
-        "PublicationDate": "2017-11-24T07:35:18.3637969Z",
-        "ExpirationDate": "2017-11-24T07:35:18.3637969Z",
-        "UrlName": $("#email").val().replace("@", "_").replace(".", "_").replace("-", "_"),
-        "Email": $("#email").val(),
-        "Username": $("#username").val(),
-        "Password": $("#password").val()
+        "email": $("#email").val(),
+        "action": "signup",
+        "name": $("#username").val(),
+        "password": $("#password").val()
     }
-
-    //var data = {
-    //    PublicationDate: '2017-11-18T23:35:06.3269788Z',
-    //    ExpirationDate: '2018-11-18T23:35:06.3269788Z',
-    //    UrlName: $("#email").val().replace("@", "_").replace(".", "_").replace("-", "_"),
-    //    Activated: false,
-    //    Suspended: false,
-    //    Email: $("#email").val(),
-    //    Password: $("#password").val(),
-    //    Username: $("#username").val()
-    //}
-    getAuthToken(function (tokendata) {
-        callApi("scusers", tokendata.access_token, data, "POST", signup_success, signup_fail);
-    }, function (err) {
-        alert(err.responseText);
-    });
-
-
-    //$.ajax({
-    //    url: 'http://go-app.cz/api/default/scusers',
-    //    type: 'POST',
-    //    data: JSON.stringify(data),
-    //    dataType: "json",
-    //    contentType: "application/json; charset=utf-8",
-    //    beforeSend: function (xhr) {
-    //        xhr.setRequestHeader("Authorization", "Bearer " + data.access_token);
-    //    },
-    //    success: function (data) {
-    //        debugger;
-    //    },
-    //    error: function (err) {
-    //        debugger;
-    //    }
-    //});
-
-    //callApi("scusers", localStorage.getItem("access_token"), data, "POST", signup_success, signup_fail);
+    callApi(data, "GET", signup_response, service_err);
 }
 
-function signup_success(data) {
-    debugger;
+function signup_response(data) {
+    if (data.OK == true)
+    {
+        localStorage.setItem("id", data.ID);
+        localStorage.setItem("name", data.Name);
+        localStorage.setItem("email", data.Email);
+        LoadView("categories", null, null, "up");
+    }
+    else
+    {
+        showNotification(data.ResponseMessage);
+    }
+    $("#btn-signup").attr('disabled', false);
+    $("#btn-signup").text('Sign Up');
 }
 
-function signup_fail(err) {
-    debugger;
+function service_err(err) {
+    $("#btn-signup").attr('disabled', false);
+    $("#btn-signup").text('Sign Up');
+    showNotification("Network error, please check your internet connection");
 }

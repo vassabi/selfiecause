@@ -1,6 +1,5 @@
 var mobile = {};
-var tokenEndPoint = "http://go-app.cz/Sitefinity/Authenticate/OpenID/connect/token";
-var apiUrl = "http://go-app.cz/api/default/";
+var apiUrl = "http://localhost:444/scservice";
 var client_id = "SelfieCause";
 var client_secret = "ssecret";
 
@@ -33,21 +32,17 @@ function EmptyView(PlaceHolderId) {
     $("#" + PlaceHolderId).empty();
 }
 
-function callApi(apiName, accessToken, data, method, callBack, errCallBack) {
+function callApi(data, method, callBack, errCallBack) {
     $.ajax({
-        url: apiUrl + apiName,
+        url: apiUrl,
         method: method,
         data: data,
         dataType: "json",
         contentType: "application/json; charset=utf-8",
-        beforeSend: function (xhr) {
-            xhr.setRequestHeader("Authorization", "Bearer " + accessToken);
-        },
         success: function (data) {
             callBack(data);
         },
         error: function (err) {
-            debugger;
             if (errCallBack != null)
                 errCallBack(err);
             else
@@ -76,4 +71,20 @@ function getAuthToken(success, fail)
             fail(err);
         }
     })
+}
+
+function showNotification(message)
+{
+    $("#notification").empty();
+    $("#notification").append(message);
+    var element = document.getElementById("notification");
+    transition.begin(element, [
+        ["transform", "translateX(0)", "translateY(20px)", "1s", "ease-in-out"],
+        ["background-color", "#ffffff", "#ADB5C7", "500ms", "linear"]
+    ]);
+    element._timeout = window.setTimeout(function () {
+        transition.begin(element, [
+            ["transform", "translateX(0)", "translateY(-20px)", "1s", "ease-in-out"],
+        ]);
+    }, 4000);
 }

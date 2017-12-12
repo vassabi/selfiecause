@@ -12,8 +12,8 @@ $(document).ready(function () {
         GPlusSignIn();
     });
     //set the password for quick login, remove this part later
-    $("#email").val("JohnDoe");
-    $("#password").val("test");
+    $("#email").val("karen.aghajanyan@gmail.com");
+    $("#password").val("kasper");
     initFormValidation();
 });
 
@@ -21,9 +21,10 @@ function SignIn() {
     $("#btn-signin").attr('disabled', true);
     $("#btn-signin").text('Signing In...');
 
-    var username = $("#email").val();
+    var email = $("#email").val();
     var password = $("#password").val();
-    callApi("scusers?$filter=Username eq '" + username + "'", null, null, "GET", signin_response, null);
+    var data = { email: email, password: password, action: "login"};
+    callApi(data, "GET", signin_response, service_err);
 }
 
 function GPlusSignIn()
@@ -33,28 +34,26 @@ function GPlusSignIn()
 
 function signin_response(data)
 {
-    if(data.value.length > 0)
+    if (data.OK == true)
     {
-        var user = data.value[0];
-        if (user.Password != $("#password").val())
-        {
-            $("#btn-signin").attr('disabled', false);
-            $("#btn-signin").text('Sign In');
-            alert('Invalid email/password combination');
-        }
-        else
-        {
-            debugger;
-            $("#btn-signin").attr('disabled', false);
-            $("#btn-signin").text('Sign In');
-            localStorage.setItem("username", user.Username);
-            localStorage.setItem("email", user.Email);
-            LoadView("categories", null, null, "up");
-        }
-    }
-    else {
         $("#btn-signin").attr('disabled', false);
         $("#btn-signin").text('Sign In');
-        alert('Invalid email/password combination');
+        localStorage.setItem("id", data.ID);
+        localStorage.setItem("name", data.Name);
+        localStorage.setItem("email", data.Email);
+        LoadView("camera", null, null, "up");
     }
+    else
+    {
+        $("#btn-signin").attr('disabled', false);
+        $("#btn-signin").text('Sign In');
+        showNotification(data.ResponseMessage);
+    }
+}
+
+function service_err(data)
+{
+    $("#btn-signin").attr('disabled', false);
+    $("#btn-signin").text('Sign In');
+    showNotification("Network error, please check your internet connection");
 }
