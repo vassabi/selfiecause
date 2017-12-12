@@ -26,6 +26,15 @@
   <platform name="ios">
     <allow-intent href="itms:*" />
     <allow-intent href="itms-apps:*" />
+	<edit-config target="NSCameraUsageDescription" file="*-Info.plist" mode="merge">
+		<string>Need camera access to take selfie pictures</string>
+	</edit-config>
+	<edit-config target="NSPhotoLibraryUsageDescription" file="*-Info.plist" mode="merge">
+		<string>Need to photo library access to get pictures from there</string>
+	</edit-config>
+	<edit-config target="NSPhotoLibraryAddUsageDescription" file="*-Info.plist" mode="merge">
+		<string>Need to photo library access to save pictures there</string>
+	</edit-config>
   </platform>
   <platform name="android">
     <icon src="res/icons/android/icon-36-ldpi.png" density="ldpi" />
@@ -109,5 +118,7 @@
   <preference name="StatusBarStyle" value="lightcontent" />
   <plugin spec="https://github.com/apache/cordova-plugin-statusbar.git" source="git" />
   <plugin name="com.telerik.plugins.nativepagetransitions" spec="~0.6.5" src="https://github.com/Telerik-Verified-Plugins/NativePageTransitions" />
-  <plugin name="cordova-plugin-camera-preview" spec="~0.9.0" />
+  <plugin name="cordova-plugin-camera-preview" spec="~0.9.0" >
+		<param name="CAMERA_USAGE_DESCRIPTION" value="Need camera access to take selfie pictures" />
+  </plugin>
 </widget>

@@ -71,15 +71,6 @@
     <framework src="GLKit.framework" />
     <framework src="CoreVideo.framework" />
     <framework src="QuartzCore.framework"/>
-    <edit-config target="NSCameraUsageDescription" file="*-Info.plist" mode="merge">
-		<string>Need camera access to take selfie pictures</string>
-	</edit-config>
-	<edit-config target="NSPhotoLibraryUsageDescription" file="*-Info.plist" mode="merge">
-		<string>Need to photo library access to get pictures from there</string>
-	</edit-config>
-	<edit-config target="NSPhotoLibraryAddUsageDescription" file="*-Info.plist" mode="merge">
-		<string>Need to photo library access to save pictures there</string>
-	</edit-config>
   </platform>
 
 </plugin>
