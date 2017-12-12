@@ -9,8 +9,7 @@
         tapPhoto: true,
         previewDrag: false
     };
-    debugger;
-    CameraPreview.startCamera(options);
+    //CameraPreview.startCamera(options);
 
     $("#btn-take-picture").on("click", function () {
         CameraPreview.takePicture({ width: 640, height: 640, quality: 85 }, function (base64PictureData) {
