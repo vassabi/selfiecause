@@ -41,7 +41,7 @@ function signin_response(data)
         localStorage.setItem("id", data.ID);
         localStorage.setItem("name", data.Name);
         localStorage.setItem("email", data.Email);
-        LoadView("camera", null, null, "up");
+        LoadView("categories", null, null, "up");
     }
     else
     {

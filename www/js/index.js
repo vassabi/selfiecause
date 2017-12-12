@@ -100,7 +100,7 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 
         $("#btn-login").on("click", function () {
-            LoadView("login", null, null);
+            LoadView("camera", null, null);
         });
     }
 };
