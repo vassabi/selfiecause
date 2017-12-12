@@ -71,6 +71,7 @@
     <framework src="GLKit.framework" />
     <framework src="CoreVideo.framework" />
     <framework src="QuartzCore.framework"/>
+    <config-file target="*-Info.plist" parent="NSCameraUsageDescription"> <string>Camera usage for taking selfies on causes</string> </config-file>
   </platform>
 
 </plugin>

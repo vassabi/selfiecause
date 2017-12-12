@@ -60,7 +60,6 @@
     <!-- iPad Spotlight and Settings Icon -->
     <icon src="res/icons/ios/icon-50.png" width="50" height="50" />
     <icon src="res/icons/ios/icon-50-2x.png" width="100" height="100" />
-    <config-file target="*-Info.plist" parent="NSCameraUsageDescription"> <string>Camera usage for taking selfies on causes</string> </config-file>
   </platform>
   <platform name="windows">
     <icon src="res/icons/windows/Square150x150Logo.scale-100.png" width="150" height="150" />
