@@ -12,13 +12,16 @@
 
     CameraPreview.startCamera(options);
 
+    $("#swith-camera").on("click", function () {
+        CameraPreview.switchCamera();
+    });
+
     $("#btn-take-picture").on("click", function () {
         CameraPreview.takePicture({ width: 640, height: 640, quality: 85 }, function (base64PictureData) {
             imageSrcData = 'data:image/jpeg;base64,' + base64PictureData;
             $('img#my-img').attr('src', imageSrcData);
             $('img#my-img').attr('style', 'display:block;');
         });
-        CameraPreview.stopCamera();
     });
 });
 
