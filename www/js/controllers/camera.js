@@ -15,10 +15,10 @@
     $("#btn-take-picture").on("click", function () {
         CameraPreview.takePicture({ width: 640, height: 640, quality: 85 }, function (base64PictureData) {
             imageSrcData = 'data:image/jpeg;base64,' + base64PictureData;
-            var img = $('img');
-            img.attr('src', imageSrcData);
-            $("#image-holder").empty().append(img);
+            $('img#my-img').attr('src', imageSrcData);
+            $('img#my-img').attr('style', 'display:block;');
         });
+        CameraPreview.stopCamera();
     });
 });
 
