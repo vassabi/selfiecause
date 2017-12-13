@@ -18,11 +18,10 @@
 
     $("#btn-flash").on("click", function () {
         CameraPreview.getFlashMode(function (currentFlashMode) {
-
-            if (currentFlashMode == CameraPreview.FLASH_MODE.OFF)
-                CameraPreview.setFlashMode(CameraPreview.FLASH_MODE.ON);
-            else
+            if (currentFlashMode == CameraPreview.FLASH_MODE.ON)
                 CameraPreview.setFlashMode(CameraPreview.FLASH_MODE.OFF);
+            else
+                CameraPreview.setFlashMode(CameraPreview.FLASH_MODE.ON);
         });
     });
 
@@ -32,7 +31,7 @@
     });
 
     $("#btn-take-picture").on("click", function () {
-        CameraPreview.takePicture({ quality: 85 }, function (base64PictureData) {
+        CameraPreview.takePicture({ width: window.screen.width, height: window.screen.height, quality: 85 }, function (base64PictureData) {
             imageSrcData = 'data:image/jpeg;base64,' + base64PictureData;
             $('img#my-img').attr('src', imageSrcData);
             $('img#my-img').attr('style', 'display:block;');
