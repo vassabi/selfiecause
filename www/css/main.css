@@ -495,7 +495,7 @@ html {
 
 body {
   color: #000;
-  background: #d4d5d5;
+  background-color:transparent;
   font: 17px/1.2353 "Lato", "Arial", "Helvetica Neue", "Helvetica", sans-serif;
   min-width: 320px;
   -webkit-font-smoothing: antialiased;
