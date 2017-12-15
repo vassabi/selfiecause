@@ -1,47 +1,52 @@
+<script src="kendo/js/kendo.all.min.js"></script>
 <header id="header"></header>
 
 <main id="main">
-    <div class="causes-list">
-        <section class="cause-block">
-            <div class="video-holder">
-                <!-- <img src="images/video-placeholder.jpg" alt="video"> -->
-                <iframe width="560" height="175" src="https://www.youtube.com/embed/xy5PGHFmn-w?rel=0&amp;showinfo=0" allowfullscreen=""></iframe>
-            </div>
-            <header class="cause-header">
-                <div class="header-content">
-                    <h2>Global Climate March</h2>
-                    <span class="author"><i class="icon-people"></i>By Brenda Ray / New york city</span>
-                </div>
-                <div class="tag-holder">
-                    <span class="tag">Environment</span>
-                </div>
-            </header>
-            <div class="cause-content">
-                <div class="cause-progress">
-                    <div class="progress-info">
-                        <span class="progress-label">Funded</span>
-                        <span class="progress-data">65%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <span class="progress" style="width: 65%;"></span>
-                    </div>
-                    <div class="fund-amount">$1664 pledged of $2555</div>
-                </div>
-                <div class="three-columns">
-                    <div class="col">
-                        <a href="#">687 <span class="text">Views</span></a>
-                    </div>
-                    <div class="col">
-                        <a href="#">476 <span class="text">Backers</span></a>
-                    </div>
-                    <div class="col">
-                        <span>50 Days left</span>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <div class="demo-section k-content wide">
+        <div id="listView"></div>
     </div>
 </main>
+
+<script type="text/x-kendo-template" id="template">
+    <section class="cause-block">
+        <div class="video-holder">
+            <iframe width="560" height="175" src="#= VideoUrl #" allowfullscreen=""></iframe>
+        </div>
+        <header class="cause-header">
+            <div class="header-content">
+                <h2>#:Title#</h2>
+                <span class="author"><i class="icon-people"></i>#:CreatedBy# / #:City#</span>
+            </div>
+            <div class="tag-holder">
+                <span class="tag">Environment</span>
+            </div>
+        </header>
+        <div class="cause-content">
+            <div class="cause-progress">
+                <div class="progress-info">
+                    <span class="progress-label">Funded</span>
+                    <span class="progress-data">#:FundedPercent#%</span>
+                </div>
+                <div class="progress-bar">
+                    <span class="progress" style="width: #= FundedPercent #%;"></span>
+                </div>
+                <div class="fund-amount">$#:Funded# pledged of $#:TargetAmount#</div>
+            </div>
+            <div class="three-columns">
+                <div class="col">
+                    <a>#:Views# <span class="text">Views</span></a>
+                </div>
+                <div class="col">
+                    <a>#:Backers# <span class="text">Backers</span></a>
+                </div>
+                <div class="col">
+                    <span>#:DaysLeft# Days left</span>
+                </div>
+            </div>
+        </div>
+    </section>
+</script>
+
 <div id="loader"></div>
 
 <script type="text/javascript" src="js/controllers/causes.js"></script>

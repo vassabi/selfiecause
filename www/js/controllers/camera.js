@@ -1,4 +1,7 @@
 ﻿$(document).ready(function () {
+
+    var x = window.screen.width;
+    debugger;
     let options = {
         x: 0,
         y: 0,

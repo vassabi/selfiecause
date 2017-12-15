@@ -1,5 +1,5 @@
 var mobile = {};
-var apiUrl = "http://localhost:444/scservice";
+var apiUrl = "http://jailexchange.elabry.com/scservice";
 var client_id = "SelfieCause";
 var client_secret = "ssecret";
 
@@ -87,4 +87,9 @@ function showNotification(message)
             ["transform", "translateX(0)", "translateY(-20px)", "1s", "ease-in-out"],
         ]);
     }, 4000);
+}
+
+function setTitle(title)
+{
+    $("#main-title").empty().append(title);
 }
