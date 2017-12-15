@@ -113,4 +113,6 @@
   <config-file platform="ios" target="*-Info.plist" parent="NSCameraUsageDescription" overwrite="true">
     <string>Allow the app to use your camera</string>
   </config-file>
+  <!-- White list https access to Youtube -->
+  <allow-navigation href="https://*youtube.com/*"/>
 </widget>
