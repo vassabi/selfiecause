@@ -1,35 +1,92 @@
 {
-    "cordova-plugin-whitelist": {
-        "source": {
-            "type": "registry",
-            "id": "cordova-plugin-whitelist@1.2.2"
-        },
-        "is_top_level": true,
-        "variables": {}
+  "cordova-plugin-whitelist": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-whitelist@1.3.3"
     },
-    "com.telerik.plugins.nativepagetransitions": {
-        "source": {
-            "type": "git",
-            "url": "https://github.com/Telerik-Verified-Plugins/NativePageTransitions",
-            "subdir": "."
-        },
-        "is_top_level": true,
-        "variables": {}
+    "is_top_level": true,
+    "variables": {}
+  },
+  "com.telerik.plugins.nativepagetransitions": {
+    "source": {
+      "type": "registry",
+      "id": "com.telerik.plugins.nativepagetransitions"
     },
-    "cordova-plugin-compat": {
-        "source": {
-            "type": "registry",
-            "id": "cordova-plugin-compat"
-        },
-        "is_top_level": false,
-        "variables": {}
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-compat": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-compat"
     },
-    "cordova-plugin-camera-preview": {
-        "source": {
-            "type": "registry",
-            "id": "cordova-plugin-camera-preview"
-        },
-        "is_top_level": true,
-        "variables": {}
+    "is_top_level": false,
+    "variables": {}
+  },
+  "cordova-plugin-camera-preview": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-camera-preview"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-statusbar": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-statusbar@2.3.0"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-camera": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-camera@3.0.0"
+    },
+    "is_top_level": true,
+    "variables": {
+      "CAMERA_USAGE_DESCRIPTION": "Allow the app to use your camera",
+      "PHOTOLIBRARY_USAGE_DESCRIPTION": "Allow the app to use your camera"
     }
+  },
+  "cordova-plugin-facebook4": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-facebook4"
+    },
+    "is_top_level": true,
+    "variables": {
+      "APP_ID": "400534183738859",
+      "APP_NAME": "Mobile"
+    }
+  },
+  "twitter-connect-plugin": {
+    "source": {
+      "type": "registry",
+      "id": "twitter-connect-plugin"
+    },
+    "is_top_level": true,
+    "variables": {
+      "FABRIC_KEY": "c765ab025a91029b2437f91fac4426efcd544757"
+    }
+  },
+  "cordova-plugin-googleplus": {
+    "source": {
+      "type": "registry",
+      "id": "https://github.com/EddyVerbruggen/cordova-plugin-googleplus"
+    },
+    "is_top_level": true,
+    "variables": {
+      "REVERSED_CLIENT_ID": "189250919275-amqao67ic4e6dc5cdaleui8qea1gmm25.apps.googleusercontent.com"
+    }
+  },
+  "cordova-plugin-spinner": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-spinner"
+    },
+    "is_top_level": true,
+    "variables": {}
+  }
 }

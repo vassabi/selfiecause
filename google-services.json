@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "189250919275",
+    "project_id": "mobile-3b0b2"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:189250919275:android:3bbdf6014a5187e4",
+        "android_client_info": {
+          "package_name": "io.cordova.myappaf5203"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "189250919275-r0k1j7epv4nus08ej2fkgdg1d9hs6ept.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "189250919275-amqao67ic4e6dc5cdaleui8qea1gmm25.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "io.cordova.myappaf5203",
+            "certificate_hash": "0cfa42541cb3a6549d3301c61df3cd4c219df358"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDkx0P8OW36wAMbxfcSITErPIbszdYmjpE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
