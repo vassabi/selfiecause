@@ -112,7 +112,7 @@
     <plugin name="twitter-connect-plugin" spec="^0.6.0">
         <variable name="FABRIC_KEY" value="c765ab025a91029b2437f91fac4426efcd544757" />
     </plugin>
-    <plugin name="cordova-plugin-googleplus" spec="git+https://github.com/EddyVerbruggen/cordova-plugin-googleplus.git">
+    <plugin name="cordova-plugin-googleplus" spec="https://github.com/EddyVerbruggen/cordova-plugin-googleplus.git">
         <variable name="REVERSED_CLIENT_ID" value="189250919275-amqao67ic4e6dc5cdaleui8qea1gmm25.apps.googleusercontent.com" />
     </plugin>
     <plugin name="cordova-plugin-spinner" spec="^1.1.0" />
