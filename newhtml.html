@@ -1,0 +1,29 @@
+<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="js/jquery.main.js"></script> 
+<script type="text/javascript" src="js/transition.min.js"></script>
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="js/lib.js"></script>
+<script type="text/javascript">
+            app.initialize();
+        </script>
+        <script type="text/javascript" src="js/controllers/categories.js"></script>
+        <script type="text/javascript" src="js/controllers/slidemenu.js"></script>
+        
+        
+        nav-active
+        
+        
+        
+            var dataSource = new kendo.data.DataSource({
+        transport: {
+            read: {
+                url: apiUrl + "?action=causes",
+                dataType: "json"
+            }
+        }
+    });
+    $("#listView").kendoListView({
+        dataSource: dataSource,
+        template: kendo.template($("#template").html())
+    });
