@@ -1,5 +1,5 @@
+var options = { dimBackground: true };
 $(document).ready(function () {
-    var options = { dimBackground: true };
     $("#btn-signup").on("click", function () {
         LoadView("signup", null, null, "left");
     });
@@ -28,6 +28,7 @@ $(document).ready(function () {
 });
 
 function SignIn() {
+    SpinnerPlugin.activityStart("Loading...", options);
     $("#btn-signin").attr('disabled', true);
     $("#btn-signin").text('Signing In...');
 
@@ -38,7 +39,7 @@ function SignIn() {
 }
 function signin_response(data)
 {    // Hide spinner dialog
-     SpinnerPlugin.activityStop();
+    SpinnerPlugin.activityStop();
     if (data.OK == true)
     {
         $("#btn-signin").attr('disabled', false);
