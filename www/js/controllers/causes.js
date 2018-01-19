@@ -11,7 +11,7 @@ $(document).ready(function () {
         }
     });
   
-                $("#listView").kendoListView({
+    $("#listView").kendoListView({
         dataSource: dataSource,
         template: kendo.template($("#template").html())
     });
@@ -24,3 +24,8 @@ setTimeout(function(){
   },300)
    
 });
+
+function loadcause(id)
+{
+    LoadView("cause_campaign", null, id, "left");
+}
