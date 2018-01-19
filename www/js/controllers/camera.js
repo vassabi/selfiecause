@@ -31,6 +31,7 @@
     $("#btn-close").on("click", function () {
         $('img#my-img').attr('src', '');
         $('img#my-img').attr('style', 'display:none;');
+        CameraPreview.stopCamera();
         var id = mobile.passedData;
         LoadView("cause_campaign", null, id, "down");
     });
