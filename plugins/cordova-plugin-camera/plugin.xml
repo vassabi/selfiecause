@@ -147,7 +147,12 @@
              </feature>
              <preference name="CameraUsesGeolocation" value="false" />
          </config-file>
-
+		<config-file target="*-Info.plist" parent="NSPhotoLibraryUsageDescription">
+			<string>Allow the app to use your camera</string>
+		</config-file>
+		<config-file target="*-Info.plist" parent="NSCameraUsageDescription">
+			<string>Allow the app to use your camera</string>
+		</config-file>
          <js-module src="www/ios/CameraPopoverHandle.js" name="CameraPopoverHandle">
             <clobbers target="CameraPopoverHandle" />
          </js-module>

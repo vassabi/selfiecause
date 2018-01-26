@@ -62,6 +62,7 @@ function service_err(data)
     $("#btn-signin").attr('disabled', false);
     $("#btn-signin").text('Sign In');
     showNotification("Network error, please check your internet connection");
+    SpinnerPlugin.activityStop();
 }
 /******************************************************************Twitter Login Starts *****************************************************************/
 // Twitter Login
