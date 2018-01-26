@@ -116,4 +116,7 @@
     <variable name="REVERSED_CLIENT_ID" value="com.googleusercontent.apps.1066051442005-co6dl0sh90ainr2hl5rnns3qgqb2t3rf" />
   </plugin>
   <plugin name="cordova-plugin-spinner" spec="^1.1.0" />
+  <config-file platform="ios" target="*-Info.plist" parent="NSCameraUsageDescription" overwrite="true">
+    <string>Allow the app to use your camera</string>
+  </config-file>
 </widget>
