@@ -1,31 +1,44 @@
 ﻿$(document).ready(function () {
 
     var x = window.screen.width;
+  
     debugger;
+  
     let options = {
-        x: 25,
-        y: 25,
-        width: window.screen.width-50,
-        height: window.screen.height-80,
+
+        x: 1,
+        y: 40,
+        width: window.screen.width-1,
+        height: window.screen.height-120,
         camera: CameraPreview.CAMERA_DIRECTION.BACK,
         toBack: true,
         tapPhoto: true,
-        previewDrag: true
+        previewDrag: false
+  
     };
 
     CameraPreview.startCamera(options);
 
     $("#swith-camera").on("click", function () {
+   
         CameraPreview.switchCamera();
+   
     });
 
     $("#btn-flash").on("click", function () {
+   
         CameraPreview.getFlashMode(function (currentFlashMode) {
+      
             if (currentFlashMode == CameraPreview.FLASH_MODE.ON)
+   
                 CameraPreview.setFlashMode(CameraPreview.FLASH_MODE.OFF);
+   
             else
+   
                 CameraPreview.setFlashMode(CameraPreview.FLASH_MODE.ON);
+   
         });
+   
     });
 
     $("#btn-close").on("click", function () {
@@ -40,6 +53,7 @@
 
 
  CameraPreview.takePicture({ width: window.screen.width, height: window.screen.height, quality: 85 }, function (base64PictureData) {
+          
             imageSrcData = 'data:image/jpeg;base64,' + base64PictureData;
        
 
@@ -47,12 +61,13 @@ console.log(imageSrcData);
 
 
 b64toBlob(imageSrcData,
+  
     function(blob) {
         
         var url = window.URL.createObjectURL(blob);
 
       console.log(url);
-  var xhr = new XMLHttpRequest();
+      var xhr = new XMLHttpRequest();
     xhr.open( "GET", url, true );
     xhr.responseType = "arraybuffer";
     xhr.onload = function( ev ) {
@@ -61,6 +76,7 @@ b64toBlob(imageSrcData,
         var blob = new Blob( [ arrayBufferView ], { type: "image/jpeg" } );
       
     };
+   
     xhr.send();
 
  
@@ -75,6 +91,7 @@ b64toBlob(imageSrcData,
             else{
                 
             console.log('not successful');
+
            alert('test');
             
 
@@ -86,6 +103,7 @@ b64toBlob(imageSrcData,
         // do something with url
     }, function(error) {
         // handle error
+  
     });
 
     });
@@ -95,11 +113,13 @@ b64toBlob(imageSrcData,
     });
 
 function b64toBlob(b64, onsuccess, onerror) {
+   
     var img = new Image();
 
     img.onerror = onerror;
 
     img.onload = function onload() {
+    
         var canvas = document.createElement('canvas');
         canvas.width = img.width;
         canvas.height = img.height;
@@ -116,12 +136,13 @@ function b64toBlob(b64, onsuccess, onerror) {
 function uploadToS3(blob, callback) {
     
     AWS.config = new AWS.Config();
-    AWS.config.accessKeyId = 'AKIAJQE6PCYOIW4U2HAQ';
-    AWS.config.secretAccessKey = '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';
+    AWS.config.accessKeyId = 'AKIAJMEJCNEAKZAZG3RQ';
+    AWS.config.secretAccessKey = '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';
     AWS.config.region = 'us-east-2';
      let s3 = new AWS.S3();
 
 var d = new Date();
+
 var t= d.getTime();
 
   let options = { Bucket: 'selfiecausebucket', Key:'myFile'+t+'.jpg', Body: blob };// <--
@@ -131,6 +152,7 @@ var t= d.getTime();
 }
 
 function getImageAsBlob(url, blobCallback) {
+    
     var xhr = new XMLHttpRequest();
     xhr.open( "GET", url, true );
     xhr.responseType = "arraybuffer";
@@ -144,20 +166,25 @@ function getImageAsBlob(url, blobCallback) {
 }
 
 
-function takePicture(urlCallback){
+function takePicture(urlCallback)
+
+{
+  
     let options = {
+    
         quality: 50,
         destinationType: Camera.DestinationType.FILE_URI,// <--
         sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
         encodingType: Camera.EncodingType.JPG
     };
+    
     navigator.camera.getPicture(urlCallback, onFail, options);  
+    
     function onFail(message) {
+    
         alert('Failed because: ' + message);
     }
 }
-
-
 
 });
 
