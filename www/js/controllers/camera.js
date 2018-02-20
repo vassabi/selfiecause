@@ -136,8 +136,8 @@ function b64toBlob(b64, onsuccess, onerror) {
 function uploadToS3(blob, callback) {
     
     AWS.config = new AWS.Config();
-    AWS.config.accessKeyId = 'AKIAJMEJCNEAKZAZG3RQ';
-    AWS.config.secretAccessKey = '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';
+    AWS.config.accessKeyId = 'AKIAJMHQ7X6FF7KS7XHA';
+    AWS.config.secretAccessKey = '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';
     AWS.config.region = 'us-east-2';
      let s3 = new AWS.S3();
 
