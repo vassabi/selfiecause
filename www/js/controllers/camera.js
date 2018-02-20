@@ -103,16 +103,21 @@ function b64toBlob(b64, onsuccess, onerror) {
     LoadView("picture_edit_reframe", null, data, "left");
 }
 
-function uploadToS3(blob, callback) {
-    AWS.config = new AWS.Config();
-    AWS.config.accessKeyId = 'AKIAIJPUY3HTGKHVUQ4Q';
-    AWS.config.secretAccessKey = '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';
-    AWS.config.region = 'us-east-2';
-    let s3 = new AWS.S3();
-    var d = new Date();
-    var t= d.getTime();
-    let options = { Bucket: 'selfiecausebucket', Key:'myFile'+t+'.jpg', Body: blob };// <--
-    s3.upload(options, callback);
+    function uploadToS3(blob, callback) {
+    var data = { action: "awscreds" };
+    callApi(data, "GET", function success(d) {
+        AWS.config = new AWS.Config();
+        AWS.config.accessKeyId = d.accessKeyId;
+        AWS.config.secretAccessKey = d.secretAccessKey;
+        AWS.config.region = 'us-east-2';
+        let s3 = new AWS.S3();
+        var d = new Date();
+        var t = d.getTime();
+        let options = { Bucket: 'selfiecausebucket', Key: 'myFile' + t + '.jpg', Body: blob };// <--
+        s3.upload(options, callback);
+    }, function error(d){
+        showNotification("Network error, please check your internet connection");
+    });
 }
 
 function getImageAsBlob(url, blobCallback) {
