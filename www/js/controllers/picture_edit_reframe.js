@@ -46,6 +46,7 @@ $("#btn_save").on("click", function () {
 
 
 function uploadToS3(blob, awscreds, callback) {
+    alert("uploading to AWS...");
     AWS.config = new AWS.Config();
     AWS.config.accessKeyId = awscreds.accessKeyId;
     AWS.config.secretAccessKey = awscreds.secretAccessKey;
