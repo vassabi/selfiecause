@@ -102,8 +102,6 @@
         <variable name="CAMERA_USAGE_DESCRIPTION" value="Allow the app to use your camera" />
         <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="Allow the app to use your camera" />
     </plugin>
-
-	
     <plugin name="cordova-plugin-facebook4" spec="^1.9.1">
         <variable name="APP_ID" value="400534183738859" />
         <variable name="APP_NAME" value="Mobile" />
@@ -118,11 +116,9 @@
     <config-file overwrite="true" parent="NSCameraUsageDescription" platform="ios" target="*-Info.plist">
         <string>Allow the app to use your camera</string>
     </config-file>
-		<config-file platform="ios" target="*-Info.plist" parent="NSCameraUsageDescription" overwrite="true">
-  <string>Allow the app to use your camera</string>
-</config-file>
-	
-	
+    <config-file overwrite="true" parent="NSCameraUsageDescription" platform="ios" target="*-Info.plist">
+        <string>Allow the app to use your camera</string>
+    </config-file>
     <engine name="ios" spec="4.2.0" />
     <engine name="windows" spec="4.4.2" />
     <engine name="android" spec="^6.3.0" />

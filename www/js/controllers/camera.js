@@ -85,6 +85,7 @@ b64toBlob(imageSrcData,
             if (data) {
 
                 console.log('yay!');
+				   alert('image uploaded');
 
 }
             
@@ -136,10 +137,11 @@ function b64toBlob(b64, onsuccess, onerror) {
 function uploadToS3(blob, callback) {
     
     AWS.config = new AWS.Config();
-    AWS.config.accessKeyId = 'AKIAJMHQ7X6FF7KS7XHA';
-    AWS.config.secretAccessKey = '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';
+    AWS.config.accessKeyId = 'AKIAIYGPVVKTQEEQF3HA';
+    AWS.config.secretAccessKey = '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';
     AWS.config.region = 'us-east-2';
-     let s3 = new AWS.S3();
+   
+   let s3 = new AWS.S3();
 
 var d = new Date();
 
