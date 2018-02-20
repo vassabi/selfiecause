@@ -27,17 +27,19 @@ $("#btn_save").on("click", function () {
                 uploadToS3(blob, d, function (err, data) {
                     if (data) {
                         SpinnerPlugin.activityStop();
-                        console.log('yay!');
+                        showNotification("Image saved successfully");
                     }
                     else {
                         SpinnerPlugin.activityStop();
-                        console.log('not successful');
+                        showNotification("Unable to save image");
                     }
                 });
             }, function (error) {
-                // handle error
+                SpinnerPlugin.activityStop();
+                showNotification("Unable to save image");
             });
     }, function error(d) {
+        SpinnerPlugin.activityStop();
         showNotification("Network error, please check your internet connection");
     });
 });
