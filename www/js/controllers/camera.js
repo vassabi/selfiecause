@@ -1,11 +1,6 @@
 ﻿$(document).ready(function () {
-
     var x = window.screen.width;
-  
-    debugger;
-  
     let options = {
-
         x: 1,
         y: 40,
         width: window.screen.width-1,
@@ -45,7 +40,7 @@
 
  CameraPreview.takePicture({ width: window.screen.width, height: window.screen.height, quality: 85 }, function (base64PictureData) {
             imageSrcData = 'data:image/jpeg;base64,' + base64PictureData;
-            
+            SpinnerPlugin.activityStart("Loading...", options);
             console.log(imageSrcData);
 
 b64toBlob(imageSrcData,
@@ -102,29 +97,22 @@ function b64toBlob(b64, onsuccess, onerror) {
         canvas.toBlob(onsuccess);
     };
     CameraPreview.stopCamera();
+    SpinnerPlugin.activityStop();
     img.src = b64;
     var data = { campaignid: mobile.passedData, base64PictureData: b64 };
     LoadView("picture_edit_reframe", null, data, "left");
-    return;
 }
 
 function uploadToS3(blob, callback) {
-    
     AWS.config = new AWS.Config();
     AWS.config.accessKeyId = 'AKIAIJPUY3HTGKHVUQ4Q';
     AWS.config.secretAccessKey = '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';
     AWS.config.region = 'us-east-2';
-   
-   let s3 = new AWS.S3();
-
-var d = new Date();
-
-var t= d.getTime();
-
-  let options = { Bucket: 'selfiecausebucket', Key:'myFile'+t+'.jpg', Body: blob };// <--
-
+    let s3 = new AWS.S3();
+    var d = new Date();
+    var t= d.getTime();
+    let options = { Bucket: 'selfiecausebucket', Key:'myFile'+t+'.jpg', Body: blob };// <--
     s3.upload(options, callback);
-
 }
 
 function getImageAsBlob(url, blobCallback) {
