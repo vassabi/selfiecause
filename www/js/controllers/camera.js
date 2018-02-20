@@ -45,3 +45,16 @@
     });
 });
 
+
+function ConfigAWS()
+{
+    var albumBucketName = 'selfiecausebucket';
+    var bucketRegion = 'us-east-2';
+    var IdentityPoolId = 'us-east-2:1ec8f487-3527-47a6-aa25-09d23fc9d91a';
+    AWS.config.update({
+        region: bucketRegion,
+        credentials: new AWS.CognitoIdentityCredentials({
+            IdentityPoolId: IdentityPoolId
+        })
+    });
+}
