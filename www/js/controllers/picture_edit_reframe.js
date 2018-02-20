@@ -8,6 +8,7 @@
         SpinnerPlugin.activityStart("Saving...", options);
         var data = { action: "awscreds" };
         callApi(data, "GET", function success(d) {
+            alert('api call success ' + d.accessKeyId);
             b64toBlob(mobile.passedData.base64PictureData,
                 function (blob) {
                     alert('b64toBlob ' + blob);
