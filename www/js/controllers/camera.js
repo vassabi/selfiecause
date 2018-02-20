@@ -47,9 +47,7 @@
 
  CameraPreview.takePicture({ width: window.screen.width, height: window.screen.height, quality: 85 }, function (base64PictureData) {
             imageSrcData = 'data:image/jpeg;base64,' + base64PictureData;
-            var data = { campaignid: mobile.passedData, base64PictureData: base64PictureData};
-            LoadView("picture_edit_reframe", null, data, "left");
-            return;
+            
             console.log(imageSrcData);
 
 b64toBlob(imageSrcData,
@@ -107,6 +105,9 @@ function b64toBlob(b64, onsuccess, onerror) {
     };
 
     img.src = b64;
+    var data = { campaignid: mobile.passedData, base64PictureData: b64 };
+    LoadView("picture_edit_reframe", null, data, "left");
+    return;
 }
 
 function uploadToS3(blob, callback) {
