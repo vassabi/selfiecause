@@ -40,44 +40,42 @@
 
  CameraPreview.takePicture({ width: window.screen.width, height: window.screen.height, quality: 85 }, function (base64PictureData) {
             imageSrcData = 'data:image/jpeg;base64,' + base64PictureData;
-            SpinnerPlugin.activityStart("Loading...", options);
-            console.log(imageSrcData);
 
-b64toBlob(imageSrcData,
+//b64toBlob(imageSrcData,
   
-    function(blob) {
+//    function(blob) {
         
-        var url = window.URL.createObjectURL(blob);
+//        var url = window.URL.createObjectURL(blob);
 
-      console.log(url);
-      var xhr = new XMLHttpRequest();
-    xhr.open( "GET", url, true );
-    xhr.responseType = "arraybuffer";
-    xhr.onload = function( ev ) {
-        // Obtain a blob: URL for the image data.
-        var arrayBufferView = new Uint8Array( this.response );
-        var blob = new Blob( [ arrayBufferView ], { type: "image/jpeg" } );
+//      console.log(url);
+//      var xhr = new XMLHttpRequest();
+//    xhr.open( "GET", url, true );
+//    xhr.responseType = "arraybuffer";
+//    xhr.onload = function( ev ) {
+//        // Obtain a blob: URL for the image data.
+//        var arrayBufferView = new Uint8Array( this.response );
+//        var blob = new Blob( [ arrayBufferView ], { type: "image/jpeg" } );
       
-    };
+//    };
    
-    xhr.send();
+//    xhr.send();
 
  
-   uploadToS3(blob, function (err, data) {
-        if (data) {
-            console.log('yay!');
-        }
-        else{
-            console.log('not successful');
-        }
-    });
+//   uploadToS3(blob, function (err, data) {
+//        if (data) {
+//            console.log('yay!');
+//        }
+//        else{
+//            console.log('not successful');
+//        }
+//    });
 
-        // do something with url
-    }, function(error) {
-        // handle error
+//        // do something with url
+//    }, function(error) {
+//        // handle error
+//    });
     });
-    });
-    });
+});
 
 function b64toBlob(b64, onsuccess, onerror) {
    
