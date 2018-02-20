@@ -26,19 +26,12 @@
     });
 
     $("#btn-flash").on("click", function () {
-   
         CameraPreview.getFlashMode(function (currentFlashMode) {
-      
             if (currentFlashMode == CameraPreview.FLASH_MODE.ON)
-   
                 CameraPreview.setFlashMode(CameraPreview.FLASH_MODE.OFF);
-   
             else
-   
                 CameraPreview.setFlashMode(CameraPreview.FLASH_MODE.ON);
-   
         });
-   
     });
 
     $("#btn-close").on("click", function () {
@@ -53,12 +46,11 @@
 
 
  CameraPreview.takePicture({ width: window.screen.width, height: window.screen.height, quality: 85 }, function (base64PictureData) {
-          
             imageSrcData = 'data:image/jpeg;base64,' + base64PictureData;
-       
-
-console.log(imageSrcData);
-
+            var data = { campaignid: mobile.passedData, base64PictureData: base64PictureData};
+            LoadView("picture_edit_reframe", null, data, "left");
+            return;
+            console.log(imageSrcData);
 
 b64toBlob(imageSrcData,
   
@@ -81,36 +73,19 @@ b64toBlob(imageSrcData,
 
  
    uploadToS3(blob, function (err, data) {
-           
-            if (data) {
-
-                console.log('yay!');
-				 
-
-}
-            
-            else{
-                
+        if (data) {
+            console.log('yay!');
+        }
+        else{
             console.log('not successful');
-
-           alert('test');
-            
-
-            }
-
-        });
-
+        }
+    });
 
         // do something with url
     }, function(error) {
         // handle error
-  
     });
-
     });
-
-
-    
     });
 
 function b64toBlob(b64, onsuccess, onerror) {
@@ -169,11 +144,8 @@ function getImageAsBlob(url, blobCallback) {
 
 
 function takePicture(urlCallback)
-
 {
-  
     let options = {
-    
         quality: 50,
         destinationType: Camera.DestinationType.FILE_URI,// <--
         sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
@@ -183,11 +155,9 @@ function takePicture(urlCallback)
     navigator.camera.getPicture(urlCallback, onFail, options);  
     
     function onFail(message) {
-    
         alert('Failed because: ' + message);
     }
 }
-
 });
 
 
