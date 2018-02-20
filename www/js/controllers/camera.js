@@ -20,9 +20,7 @@
     CameraPreview.startCamera(options);
 
     $("#swith-camera").on("click", function () {
-   
         CameraPreview.switchCamera();
-   
     });
 
     $("#btn-flash").on("click", function () {
@@ -103,7 +101,7 @@ function b64toBlob(b64, onsuccess, onerror) {
 
         canvas.toBlob(onsuccess);
     };
-
+    CameraPreview.stopCamera();
     img.src = b64;
     var data = { campaignid: mobile.passedData, base64PictureData: b64 };
     LoadView("picture_edit_reframe", null, data, "left");
