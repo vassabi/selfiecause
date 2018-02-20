@@ -85,7 +85,7 @@ b64toBlob(imageSrcData,
             if (data) {
 
                 console.log('yay!');
-				   alert('image uploaded');
+				 
 
 }
             
