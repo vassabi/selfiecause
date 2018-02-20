@@ -10,6 +10,7 @@
         callApi(data, "GET", function success(d) {
             b64toBlob(mobile.passedData.base64PictureData,
                 function (blob) {
+                    alert('b64toBlob ' + blob);
                     var url = window.URL.createObjectURL(blob);
                     var xhr = new XMLHttpRequest();
                     xhr.open("GET", url, true);
@@ -22,6 +23,7 @@
                     xhr.send();
 
                     uploadToS3(blob, d, function (err, data) {
+                        alert('uploadToS3' + blob);
                         if (data) {
                             SpinnerPlugin.activityStop();
                             showNotification("Image saved successfully");
