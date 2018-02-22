@@ -2,7 +2,7 @@
     $("#img").attr("src", mobile.passedData.base64PictureData);
 	
     $("#btn_back").on("click", function () {
-        LoadView("camera", null, mobile.passedData.campaignid, "down");
+        LoadView("photo", null, mobile.passedData, "down");
     });
 
     $("#btn_save").on("click", function () {
