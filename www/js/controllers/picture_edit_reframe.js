@@ -1,8 +1,10 @@
 ﻿$(document).ready(function () {
     $("#img").attr("src", mobile.passedData.base64PictureData);
+
+	
 	
     $("#btn_back").on("click", function () {
-        LoadView("photo", null, mobile.passedData, "down");
+        LoadView("camera", null, data.campaignid, "down");
     });
 
     $("#btn_save").on("click", function () {
@@ -49,19 +51,25 @@ b64toBlob(mobile.passedData.base64PictureData,
    };
    
    xhr.send();
+
  
   uploadToS3(blob,d, function (err, data) {
      
 	 if (data) {
            console.log('yay!');
 		   SpinnerPlugin.activityStop();
+							 alert('Image Uploaded');
                             showNotification("Image saved successfully");
        }
        else{
            console.log('not successful');
     
                     SpinnerPlugin.activityStop();
+                              alert('not Uploaded');
                             showNotification("Unable to save image");
+
+
+
 	}
    });
 
@@ -96,6 +104,7 @@ function b64toBlob(b64, onsuccess, onerror) {
 }
 
 function uploadToS3(blob, awscreds, callback) {
+    alert("uploading to AWS...");
     AWS.config = new AWS.Config();
     AWS.config.accessKeyId = awscreds.accessKeyId;
     AWS.config.secretAccessKey = awscreds.secretAccessKey;

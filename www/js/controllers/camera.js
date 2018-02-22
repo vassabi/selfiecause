@@ -37,16 +37,15 @@
 
     $("#btn-take-picture").on("click", function () {
 
-        SpinnerPlugin.activityStart("Loading...", options);
 
-    CameraPreview.takePicture({ width: window.screen.width, height: window.screen.height, quality: 85 }, function (base64PictureData) {
-           imageSrcData = 'data:image/jpeg;base64,' + base64PictureData;
+ CameraPreview.takePicture({ width: window.screen.width, height: window.screen.height, quality: 100 }, function (base64PictureData) {
+        
+		imageSrcData = 'data:image/jpeg;base64,' + base64PictureData;
   //         imageSrcData =  base64PictureData;
 
-		    CameraPreview.stopCamera();
+		   CameraPreview.stopCamera();
             var data = { campaignid: mobile.passedData, base64PictureData: imageSrcData };
-            SpinnerPlugin.activityStop();
-            LoadView("photo", null, data, "left");
+            LoadView("picture_edit_reframe", null, data, "left");
 //b64toBlob(imageSrcData,
   
 //    function(blob) {
