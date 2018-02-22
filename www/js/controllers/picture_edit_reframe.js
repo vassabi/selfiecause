@@ -8,10 +8,24 @@
         SpinnerPlugin.activityStart("Saving...", options);
         var data = { action: "awscreds" };
         callApi(data, "GET", function success(d) {
-            alert('api call success ' + d.accessKeyId);
-            b64toBlob(mobile.passedData.base64PictureData,
-                function (blob) {
-                    alert('b64toBlob ' + blob);
+        //    alert('api call success ' + d.accessKeyId);
+          
+                 
+ var dataURI = mobile.passedData.base64PictureData.replace(/^data:/, '');
+
+    const type = mobile.passedData.base64PictureData.match(/image\/[^;]+/);
+    const base64 = mobile.passedData.base64PictureData.replace(/^[^,]+,/, '');
+    const arrayBuffer = new ArrayBuffer(base64.length);
+    const typedArray = new Uint8Array(arrayBuffer);
+
+    for (let i = 0; i < base64.length; i++) {
+        typedArray[i] = base64.charCodeAt(i);
+    }
+
+    var blob= new Blob([arrayBuffer], {type});
+
+
+			//	 alert('b64toBlob ' + blob);
                     var url = window.URL.createObjectURL(blob);
                     var xhr = new XMLHttpRequest();
                     xhr.open("GET", url, true);
@@ -24,20 +38,20 @@
                     xhr.send();
 
                     uploadToS3(blob, d, function (err, data) {
-                        alert('uploadToS3' + blob);
+               //         alert('uploadToS3' + blob);
                         if (data) {
-                            SpinnerPlugin.activityStop();
+                        
+						SpinnerPlugin.activityStop();
+							alert('Image Uploaded');
                             showNotification("Image saved successfully");
                         }
                         else {
                             SpinnerPlugin.activityStop();
+                             alert('not Uploaded');
                             showNotification("Unable to save image");
                         }
                     });
-                }, function (error) {
-                    SpinnerPlugin.activityStop();
-                    showNotification("Unable to save image");
-                });
+           
         }, function error(d) {
             SpinnerPlugin.activityStop();
             showNotification("Network error, please check your internet connection");
