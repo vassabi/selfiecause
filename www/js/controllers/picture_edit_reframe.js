@@ -18,7 +18,7 @@
 var c = document.createElement('canvas');
 var ctx = c.getContext('2d');
 var img = document.getElementById('img');
-ctx.drawImage(img, 10, 10);
+ctx.drawImage(img, 0, 0, c.width,c.height);
 var base64String = c.toDataURL();
 
 //alert(base64String);
