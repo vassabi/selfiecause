@@ -2,7 +2,7 @@
     $("#img").attr("src", mobile.passedData.base64PictureData);
 	
     $("#btn_back").on("click", function () {
-        LoadView("camera", null, data.campaignid, "down");
+        LoadView("camera", null, mobile.passedData.campaignid, "down");
     });
 
     $("#btn_save").on("click", function () {
@@ -12,14 +12,12 @@
     callApi(data, "GET", function success(d) {
       //     alert('api call success ' + d.accessKeyId);
           
-  
 
-var c = document.createElement('canvas');
-var ctx = c.getContext('2d');
-var img = document.getElementById('img');
-ctx.drawImage(img, 0, 0);
-var base64String = c.toDataURL();
-//alert(base64String);
+    var c = document.createElement('canvas');
+    var ctx = c.getContext('2d');
+    var img = document.getElementById('img');
+    ctx.drawImage(img, 0, 0);
+    var base64String = c.toDataURL();
 
 
     // const type = mobile.passedData.base64PictureData.match(/image\/[^;]+/);
