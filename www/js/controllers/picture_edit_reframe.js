@@ -14,13 +14,13 @@
     callApi(data, "GET", function success(d) {
       //     alert('api call success ' + d.accessKeyId);
           
-                 
+  
+
 var c = document.createElement('canvas');
 var ctx = c.getContext('2d');
 var img = document.getElementById('img');
-ctx.drawImage(img, 0, 0, c.width,c.height);
+ctx.drawImage(img, 0, 0);
 var base64String = c.toDataURL();
-
 //alert(base64String);
 
 
@@ -33,7 +33,7 @@ var base64String = c.toDataURL();
         // typedArray[i] = base64.charCodeAt(i);
     // }
 	
-b64toBlob(base64String,
+b64toBlob(mobile.passedData.base64PictureData,
   
    function(blob) {
         
