@@ -8,3 +8,4 @@
     alert(mobile.passedData.base64PictureData);
     $("#img-holder").attr("src", mobile.passedData.base64PictureData);
 });
+
