@@ -1,0 +1,43 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "com.telerik.plugins.nativepagetransitions": {
+            "PACKAGE_NAME": "com.tin.ca.selfiecause"
+        },
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "com.tin.ca.selfiecause"
+        },
+        "cordova-plugin-camera-preview": {
+            "PACKAGE_NAME": "com.tin.ca.selfiecause"
+        },
+        "cordova-plugin-facebook4": {
+            "APP_ID": "400534183738859",
+            "APP_NAME": "Mobile",
+            "PACKAGE_NAME": "com.tin.ca.selfiecause"
+        },
+        "cordova-plugin-googleplus": {
+            "REVERSED_CLIENT_ID": "189250919275-amqao67ic4e6dc5cdaleui8qea1gmm25.apps.googleusercontent.com",
+            "PACKAGE_NAME": "com.tin.ca.selfiecause"
+        },
+        "cordova-plugin-spinner": {
+            "PACKAGE_NAME": "com.tin.ca.selfiecause"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.tin.ca.selfiecause"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.tin.ca.selfiecause"
+        },
+        "twitter-connect-plugin": {
+            "FABRIC_KEY": "c765ab025a91029b2437f91fac4426efcd544757",
+            "PACKAGE_NAME": "com.tin.ca.selfiecause"
+        }
+    },
+    "dependent_plugins": {}
+}
