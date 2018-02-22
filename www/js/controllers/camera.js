@@ -46,7 +46,7 @@
 		    CameraPreview.stopCamera();
             var data = { campaignid: mobile.passedData, base64PictureData: imageSrcData };
             SpinnerPlugin.activityStop();
-            LoadView("picture_edit_reframe", null, data, "left");
+            LoadView("photo", null, data, "left");
 //b64toBlob(imageSrcData,
   
 //    function(blob) {
