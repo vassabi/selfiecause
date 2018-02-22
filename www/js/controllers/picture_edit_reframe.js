@@ -8,12 +8,10 @@
         SpinnerPlugin.activityStart("Saving...", options);
         var data = { action: "awscreds" };
         callApi(data, "GET", function success(d) {
-            b64toBlob(mobile.passedData.base64PictureData,
-                function (blob) {
         //    alert('api call success ' + d.accessKeyId);
           
                  
-    var dataURI = mobile.passedData.base64PictureData.replace(/^data:/, '');
+ var dataURI = mobile.passedData.base64PictureData.replace(/^data:/, '');
 
     const type = mobile.passedData.base64PictureData.match(/image\/[^;]+/);
     const base64 = mobile.passedData.base64PictureData.replace(/^[^,]+,/, '');
@@ -62,7 +60,6 @@
 });
 
 function b64toBlob(b64, onsuccess, onerror) {
-    alert('b64toBlob ' + b64);
     var img = new Image();
     img.onerror = onerror;
     img.onload = function onload() {
