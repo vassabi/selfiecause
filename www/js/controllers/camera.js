@@ -39,7 +39,6 @@
 
         SpinnerPlugin.activityStart("Loading...", options);
 
-        alert('Taking picture, sizes ' + window.screen.width + ' x ' + window.screen.height);
     CameraPreview.takePicture({ width: window.screen.width, height: window.screen.height, quality: 85 }, function (base64PictureData) {
            imageSrcData = 'data:image/jpeg;base64,' + base64PictureData;
   //         imageSrcData =  base64PictureData;
