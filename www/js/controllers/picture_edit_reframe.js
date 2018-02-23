@@ -91,7 +91,7 @@ function uploadToS3(blob, awscreds, callback) {
     createAlbum(id, s3);
     var d = new Date();
     var t = d.getTime();
-    let options = {Bucket: 'selfiecausebucket', id + '//' + Key: 'myFile' + t + '.jpg', Body: blob };// <--
+    let options = { Bucket: 'selfiecausebucket', Key: id + '//myFile' + t + '.jpg', Body: blob };// <--
     s3.upload(options, callback);
 }
 
