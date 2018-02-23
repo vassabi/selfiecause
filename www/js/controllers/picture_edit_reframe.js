@@ -86,10 +86,12 @@ function uploadToS3(blob, awscreds, callback) {
     AWS.config.accessKeyId = awscreds.accessKeyId;
     AWS.config.secretAccessKey = awscreds.secretAccessKey;
     AWS.config.region = 'us-east-2';
+    var id = localStorage.getItem("id"); // current user id, appropriate album name will be created
     let s3 = new AWS.S3();
+    createAlbum(id, s3);
     var d = new Date();
     var t = d.getTime();
-    let options = {Bucket: 'selfiecausebucket', Key: 'myFile' + t + '.jpg', Body: blob };// <--
+    let options = {Bucket: 'selfiecausebucket', id + '//' + Key: 'myFile' + t + '.jpg', Body: blob };// <--
     s3.upload(options, callback);
 }
 
@@ -106,6 +108,24 @@ function b64toBlob(b64, onsuccess, onerror) {
         canvas.toBlob(onsuccess);
     };
     img.src = b64;
+}
+
+function createAlbum(albumName, s3) {
+    albumName = albumName.trim();
+    var albumKey = encodeURIComponent(albumName) + '/';
+    s3.headObject({ Key: albumKey }, function (err, data) {
+        if (!err) {
+            return true;
+        }
+        if (err.code !== 'NotFound') {
+            return false;
+        }
+        s3.putObject({ Key: albumKey }, function (err, data) {
+            if (err) {
+                return false;
+            }
+        });
+    });
 }
 
 
