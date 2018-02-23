@@ -39,7 +39,9 @@
 
     $("#btn-take-picture").on("click", function () {
         SpinnerPlugin.activityStart("Loading...", options);
-        CameraPreview.takePicture({ width: 1500, height: 2500, quality: 100 }, function (base64PictureData) {
+        var physicalScreenWidth = window.screen.width * window.devicePixelRatio;
+        var physicalScreenHeight = window.screen.height * window.devicePixelRatio;
+        CameraPreview.takePicture({ width: physicalScreenWidth, height: physicalScreenHeight, quality: 100 }, function (base64PictureData) {
 		            imageSrcData = 'data:image/jpeg;base64,' + base64PictureData;
 		            CameraPreview.stopCamera();
                     var data = { campaignid: mobile.passedData, base64PictureData: imageSrcData };
