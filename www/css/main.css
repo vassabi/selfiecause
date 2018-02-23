@@ -2069,7 +2069,9 @@ h1 {
     justify-content: space-between;
     padding: 13px 19px;
     font-size: 25px;
-    line-height: 1; }
+    line-height: 1; 
+    margin-bottom:40px;
+  }
     .photo-wrap .photo-header .action-icons {
       display: flex;
       align-items: center;
