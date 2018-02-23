@@ -2070,8 +2070,10 @@ h1 {
     padding: 13px 19px;
     font-size: 25px;
     line-height: 1; 
-    margin-bottom:40px;
   }
+    .photo-wrap #img-holder {
+        margin-top:40px;
+    }
     .photo-wrap .photo-header .action-icons {
       display: flex;
       align-items: center;
