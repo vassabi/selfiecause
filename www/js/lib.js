@@ -1,5 +1,5 @@
 var mobile = {};
-var apiUrl = "http://jailexchange.elabry.com/scservice";
+var apiUrl = "http://selfiecause.elabry.com/scservice";
 var client_id = "SelfieCause";
 var client_secret = "ssecret";
 
